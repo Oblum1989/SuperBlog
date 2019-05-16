@@ -17,7 +17,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //
-//= require clean-blog.min.js
+//= require clean-blog.js
 //
 //= require_tree .
-
