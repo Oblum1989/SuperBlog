@@ -371,6 +371,14 @@ footer {
   padding: 50px 0 65px;
 }
 
+.social-networks a{
+  color: #343a40;
+}
+
+.social-networks a:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
 footer .list-inline {
   margin: 0;
   padding: 0;
