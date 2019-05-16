@@ -415,3 +415,22 @@ footer .copyright {
   font-size: 16px;
   padding: 25px 35px;
 }
+
+/* sign up */
+.form-sign-up {
+  background-color: #fdfefff5;
+  border: 1px solid #0000002e;
+  box-shadow: 5px 5px 13px 3px #afafaf91;
+  margin-top: 75px;
+}
+
+.img-sign-up {
+  background-image: url("<%= asset_path bg-01.jpg %>");
+  background-color: #868e96;
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
