@@ -7,7 +7,7 @@
 body {
   font-size: 20px;
   color: #212529;
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Lora', 'Times New Roman', serif !important;
 }
 
 p {
@@ -25,7 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 800;
+  font-weight: 800 !important;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -279,7 +279,7 @@ header.masthead .post-heading .meta a {
 }
 
 .post-preview > a > .post-subtitle {
-  font-weight: 300;
+  font-weight: 300 !important;
   margin: 0 0 10px;
 }
 
@@ -425,7 +425,7 @@ footer .copyright {
 }
 
 .img-sign-up {
-  background-image: url("<%= asset_path bg-01.jpg %>");
+  background-image: url("../assets/bg-01.jpg");
   background-color: #868e96;
   height: 100vh;
   width: 100vw;

@@ -14,9 +14,13 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery3
-//= require popper
 //= require bootstrap-sprockets
+//= require popper
 //
-//= require clean-blog.js
+// 
+// jquery.js
+// bootstrap.bundle.js
+// bootstrap.js
+//= clean-blog.js
 //
 //= require_tree .
