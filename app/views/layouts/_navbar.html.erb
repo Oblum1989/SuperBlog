@@ -10,13 +10,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <%= link_to  "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to  "Registrar", new_user_registration_path, class: "nav-link" %>
-        </li>
-        </li>
+        <%= render "layouts/user_signed" %>
       </ul>
     </div>
   </div>

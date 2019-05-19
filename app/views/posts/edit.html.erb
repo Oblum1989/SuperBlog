@@ -1,2 +1,51 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('http://lorempixel.com/1200/800/')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Contact Me</h1>
+            <span class="subheading">Have questions? I have answers.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <%= render 'form', post: @post%>
+      </div>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto social-networks">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <%= fa_stacked_icon "twitter inverse", base: "circle", class: "fa-2x" %>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <%= fa_stacked_icon "facebook inverse", base: "circle", class: "fa-2x" %>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <%= fa_stacked_icon "github inverse", base: "circle", class: "fa-2x" %>   
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>

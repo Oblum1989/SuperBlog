@@ -12,9 +12,7 @@
     </div>
   </div>
 </header>
-<% if user_signed_in? %>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% end %>
+
 <!-- Main Content -->
 <div class="container">
   <div class="row">
@@ -22,16 +20,22 @@
       <% @posts.each do |post| %>
         <div class="post-preview">
             <%= link_to post_path(post) do %>
-            <h2 class="post-title">
-              <%= post.title %>
-            </h2>
-            <h3 class="post-subtitle">
-              <%= post.content %>
-            </h3>
+              <h2 class="post-title">
+                <%= post.title %>
+              </h2>
+              <h3 class="post-subtitle">
+                <%= post.content %>
+              </h3>
             <% end %>
-          <p class="post-meta">Posted by
+            <p class="post-meta">Posted by
             <a href="#"><%= post.user_id %></a>
             on September 24, 2019</p>
+            <% if user_signed_in?%>
+              <% if current_user.id == post.user_id %>
+                <%= link_to  "Edit", edit_post_path(post) %>
+                <%= link_to  "Delete", post, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            <% end %>
         </div>
         <hr>
       

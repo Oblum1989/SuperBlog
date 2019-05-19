@@ -9,14 +9,14 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @categories = Category.all
   end
 
   def create  
     @post = Post.new(post_params)
+    @post.user = current_user
     
     if @post.save 
-      redirect_to post_path, notice: "El producto ha sido guardado exitosamente"
+      redirect_to posts_path, notice: "El producto ha sido guardado exitosamente"
     else
       flash[:alert] = "El producto no ha sido guardado, por favor repetir la operacion"
       render :new
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:user, :category, :title, :content, :image)
+      params.require(:post).permit(:user_id, :category_id, :title, :content, :image)
     end
 
 end
