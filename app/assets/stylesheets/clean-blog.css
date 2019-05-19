@@ -434,3 +434,8 @@ footer .copyright {
   background-size: cover;
   position: relative;
 }
+
+#remember-me{
+  font-style: italic;
+  color: #868e96;
+}

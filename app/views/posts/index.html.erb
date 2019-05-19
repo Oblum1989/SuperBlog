@@ -1,27 +1,3 @@
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">Super Blog</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-      aria-label="Toggle navigation">
-      Menu
-      <%= fa_icon "bars" %>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
-        </li>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
 <!-- Page Header -->
 <header class="masthead" style="background-image: url('../assets/home-bg.jpg')" >
   <div class="overlay"></div>
@@ -36,25 +12,30 @@
     </div>
   </div>
 </header>
-
+<% if user_signed_in? %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% end %>
 <!-- Main Content -->
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-      <div class="post-preview">
-        <a href="post.html">
-          <h2 class="post-title">
-            Man must explore, and this is exploration at its greatest
-          </h2>
-          <h3 class="post-subtitle">
-            Problems look mighty small from 150 miles up
-          </h3>
-        </a>
-        <p class="post-meta">Posted by
-          <a href="#">Start Bootstrap</a>
-          on September 24, 2019</p>
-      </div>
-      <hr>
+      <% @posts.each do |post| %>
+        <div class="post-preview">
+            <%= link_to post_path(post) do %>
+            <h2 class="post-title">
+              <%= post.title %>
+            </h2>
+            <h3 class="post-subtitle">
+              <%= post.content %>
+            </h3>
+            <% end %>
+          <p class="post-meta">Posted by
+            <a href="#"><%= post.user_id %></a>
+            on September 24, 2019</p>
+        </div>
+        <hr>
+      
+      <% end %>
       <!-- Pager -->
       <div class="clearfix">
         <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
