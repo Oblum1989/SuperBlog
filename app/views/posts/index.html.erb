@@ -1,12 +1,12 @@
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('../assets/home-bg.jpg')" >
+<header class="masthead" style="background-image: url('../assets/home-bg.jpg'); height: 25rem;" >
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
-          <h1>Clean Blog</h1>
-          <span class="subheading">A Blog Theme by Start Bootstrap</span>
+          <h1>Super Blog</h1>
+          <span class="subheading">“Todos tus sueños pueden hacerse realidad si tienes el coraje de perseguirlos”</span>
         </div>
       </div>
     </div>
@@ -32,8 +32,12 @@
             on September 24, 2019</p>
             <% if user_signed_in?%>
               <% if current_user.id == post.user_id %>
-                <%= link_to  "Edit", edit_post_path(post) %>
-                <%= link_to  "Delete", post, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to  edit_post_path(post) do %>
+                  <%= fa_stacked_icon "pencil inverse", base: "circle" %>
+                <% end %>
+                <%= link_to  post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <%= fa_stacked_icon "trash inverse", base: "circle" %>
+                <% end %>
               <% end %>
             <% end %>
         </div>

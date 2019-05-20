@@ -13,7 +13,7 @@
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
       <label>Title</label>
-      <%= form.text_field :title, class: "form-control", id: "title", placeholder: "Title" %>
+      <%= form.text_field :title, class: "form-control", id: "title", placeholder: "Titulo" %>
     </div>
   </div>
 
@@ -27,18 +27,18 @@
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
       <label>Image</label>
-      <%= form.text_field :image, class: "form-control", id: "image", placeholder: "Url image" %>
+      <%= form.text_field :image, class: "form-control", id: "image", placeholder: "Url imagen" %>
     </div>
   </div>
 
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
-      <%= form.collection_select(:category_id, Category.all, :id, :name, {prompt: "Choose a category"}) %>
+      <%= form.collection_select(:category_id, Category.all, :id, :name, {prompt: "Elige una Categoría"}) %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= form.button "Send", value:"Submit Post", class:"btn btn-primary" %>
+    <%= form.button "Enviar", value:"Submit Post", class:"btn btn-primary" %>
   </div>
 
 <% end %>
