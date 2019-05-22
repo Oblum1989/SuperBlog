@@ -24,9 +24,22 @@
         <p><%= @post.content %></p>
       </div>
 
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <%= render  "comments" %>
+      <!-- Comments Form -->
+      <div class="card my-4 col-lg-8 col-md-10 mx-auto mb-3">
+        <h5 class="card-header">Deja un Comentario:</h5>
+        <div class="card-body">
+          <%= render 'comments/form' %>
+        </div>
       </div>
+
+      <!-- Single Comment -->
+      <div class="media col-lg-8 col-md-10 mx-auto mb-3">
+        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+        <div class="media-body">
+            <%= render @post.comments %>
+        </div>
+      </div>
+
     </div>
   </div>
 </article>
@@ -35,27 +48,27 @@
 
 <!-- Footer -->
 <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto social-networks">
-          <ul class="list-inline text-center">
-            <li class="list-inline-item">
-              <a href="#">
-                <%= fa_stacked_icon "twitter inverse", base: "circle", class: "fa-2x" %>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <%= fa_stacked_icon "facebook inverse", base: "circle", class: "fa-2x" %>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <%= fa_stacked_icon "github inverse", base: "circle", class: "fa-2x" %>   
-              </a>
-            </li>
-          </ul>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto social-networks">
+        <ul class="list-inline text-center">
+          <li class="list-inline-item">
+            <a href="#">
+              <%= fa_stacked_icon "twitter inverse", base: "circle", class: "fa-2x" %>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <%= fa_stacked_icon "facebook inverse", base: "circle", class: "fa-2x" %>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <%= fa_stacked_icon "github inverse", base: "circle", class: "fa-2x" %>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>

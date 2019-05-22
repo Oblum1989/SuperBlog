@@ -461,3 +461,7 @@ footer .copyright {
   font-style: italic;
   color: #868e96;
 }
+
+#comment_content {
+  width: 100%;
+}
