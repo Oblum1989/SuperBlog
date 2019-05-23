@@ -1,5 +1,5 @@
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('../assets/home-bg.jpg'); height: 25rem;" >
+<header class="masthead" style="background-image: url('../assets/home-bg.jpg'); height: 25rem;">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
@@ -13,41 +13,43 @@
   </div>
 </header>
 
+<%= flash_messages %>
+
 <!-- Main Content -->
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
       <% @posts.each do |post| %>
-        <div class="post-preview">
-            <%= link_to post_path(post) do %>
-              <h2 class="post-title">
-                <%= post.title %>
-              </h2>
-              <h3 class="post-subtitle">
-                <%= post.content %>
-              </h3>
-            <% end %>
-            <p class="post-meta">Posted by
-            <a href="#"><%= post.user_id %></a>
-            on September 24, 2019</p>
-            <% if user_signed_in?%>
-              <% if current_user.id == post.user_id %>
-                <%= link_to  edit_post_path(post) do %>
-                  <%= fa_stacked_icon "pencil inverse", base: "circle" %>
-                <% end %>
-                <%= link_to  post, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <%= fa_stacked_icon "trash inverse", base: "circle" %>
-                <% end %>
-              <% end %>
-            <% end %>
-        </div>
-        <hr>
-      
-      <% end %>
-      <!-- Pager -->
-      <div class="clearfix">
-        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+      <div class="post-preview">
+        <%= link_to post_path(post) do %>
+        <h2 class="post-title">
+          <%= post.title %>
+        </h2>
+        <h3 class="post-subtitle">
+          <% if post.content.length > 250 %>
+            <%= truncate(post.content, length: 250) %>
+          <% else %>
+            <%= post.content %>
+          <% end %>
+        </h3>
+        <% end %>
+        <p class="post-meta">Publicado por
+          <a href="#"><%= post.user.username %></a> hace
+          <%= time_ago_in_words(post.created_at) %></p>
+        <% if user_signed_in?%>
+        <% if current_user.id == post.user_id %>
+        <%= link_to  edit_post_path(post) do %>
+        <%= fa_stacked_icon "pencil inverse", base: "circle" %>
+        <% end %>
+        <%= link_to  post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <%= fa_stacked_icon "trash inverse", base: "circle" %>
+        <% end %>
+        <% end %>
+        <% end %>
       </div>
+      <hr>
+
+      <% end %>
     </div>
   </div>
 </div>
@@ -71,7 +73,7 @@
           </li>
           <li class="list-inline-item">
             <a href="#">
-              <%= fa_stacked_icon "github inverse", base: "circle", class: "fa-2x" %>   
+              <%= fa_stacked_icon "github inverse", base: "circle", class: "fa-2x" %>
             </a>
           </li>
         </ul>

@@ -16,11 +16,16 @@
 </head>
 
 <body>
-  <!-- <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p> -->
+
   <%= render "layouts/navbar" %>
 
+  
   <%= yield %>
+
+  <script>
+    $(".alert").fadeIn(500).css("opacity", "0.85").delay(6000).slideUp(1000);
+    $(".alerts").on('click', '.alert', function(){ $(this).remove() });
+  </script>
 </body>
 
 </html>

@@ -465,3 +465,7 @@ footer .copyright {
 #comment_content {
   width: 100%;
 }
+
+.alert{
+  margin: 0px !important;
+}

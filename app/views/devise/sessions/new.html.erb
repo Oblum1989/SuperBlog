@@ -1,9 +1,12 @@
+
 <div class="img-sign-up">
   <!-- Main Content -->
   <div class="container sign-up-container">
     <div class="row">
+      
       <div class="col-lg-8 col-md-10 mx-auto form-sign-up">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= flash_messages %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="control-group">
           <div class="form-group floating-label-form-group controls">

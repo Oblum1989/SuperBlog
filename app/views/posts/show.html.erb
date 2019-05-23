@@ -1,5 +1,5 @@
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('<%= @post.image %>'); height: 28rem;">
+<header class="masthead" style="background-image: url('http://lorempixel.com/1200/800/'); height: 28rem;">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
@@ -7,9 +7,9 @@
         <div class="post-heading">
           <h1><%= @post.title %></h1>
           <h2 class="subheading"><%= @post.category.name %></h2>
-          <span class="meta">Posted by
-            <a href="#"><%= @post.user.email %></a>
-            on August 24, 2019</span>
+          <span class="meta">Publicado por
+            <a href="#"><%= @post.user.username %></a> hace
+            <%= time_ago_in_words(@post.created_at) %></span>
         </div>
       </div>
     </div>
@@ -23,7 +23,12 @@
       <div class="col-lg-8 col-md-10 mx-auto mb-3">
         <p><%= @post.content %></p>
       </div>
+      <!-- Single Comment -->
+      <div class="list-group media col-lg-8 col-md-10 mx-auto mb-3">
+          <%= render @post.comments.order(created_at: :asc) %>
+      </div>
 
+      <% if user_signed_in? %>
       <!-- Comments Form -->
       <div class="card my-4 col-lg-8 col-md-10 mx-auto mb-3">
         <h5 class="card-header">Deja un Comentario:</h5>
@@ -31,15 +36,9 @@
           <%= render 'comments/form' %>
         </div>
       </div>
+      <% end %>
 
-      <!-- Single Comment -->
-      <div class="media col-lg-8 col-md-10 mx-auto mb-3">
-        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-        <div class="media-body">
-            <%= render @post.comments %>
-        </div>
-      </div>
-
+      
     </div>
   </div>
 </article>

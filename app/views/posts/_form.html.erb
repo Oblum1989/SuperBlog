@@ -1,7 +1,6 @@
 <%= form_with(model: post, local: true, class: "listing__form") do |form| %>
   <% if post.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <div id="error_explanation" class="alert alert-danger">
     <ul>
       <% post.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -12,24 +11,24 @@
 
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
-      <label>Title</label>
+      <label>Titulo</label>
       <%= form.text_field :title, class: "form-control", id: "title", placeholder: "Titulo" %>
     </div>
   </div>
 
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
-      <label>Content</label>
+      <label>Contenido</label>
       <%= form.text_area :content, class: "form-control", id: "content",rows: "5",  placeholder: "Contenido del post" %>
     </div>
   </div>
-
+<!-- 
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
-      <label>Image</label>
+      <label>Imagen</label>
       <%= form.text_field :image, class: "form-control", id: "image", placeholder: "Url imagen" %>
     </div>
-  </div>
+  </div> -->
 
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
