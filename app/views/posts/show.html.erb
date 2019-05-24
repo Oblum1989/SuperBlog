@@ -21,7 +21,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto mb-3">
-        <p><%= @post.content %></p>
+        <p><%= markdown(@post.content) %></p>
       </div>
       <!-- Single Comment -->
       <div class="list-group media col-lg-8 col-md-10 mx-auto mb-3">

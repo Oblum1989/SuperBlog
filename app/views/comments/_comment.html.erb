@@ -1,8 +1,12 @@
-<span class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1"><%= comment.user.username %>:</h5>
-        <small class="text-muted"><%= time_ago_in_words(comment.created_at) %></small>
+<span class="list-group-item list-group-item-action align-items-start d-flex flex-row">
+    <div>
+        <%= image_tag gravatar_url(comment.user.email, 40), alt: "gravatar", class: "d-flex mr-3 rounded-circle" %>
     </div>
-    <p class="mb-1"><%= comment.content %></p>
-    <!-- <small class="text-muted">Donec id elit non mi porta.</small> -->
+    <div class="flex-grow-1">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%= comment.user.username %>:</h5>
+            <small class="text-muted"><%= time_ago_in_words(comment.created_at) %></small>
+        </div>
+        <%= markdown(comment.content) %>
+    </div>
 </span>

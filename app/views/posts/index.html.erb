@@ -27,9 +27,9 @@
         </h2>
         <h3 class="post-subtitle">
           <% if post.content.length > 250 %>
-            <%= truncate(post.content, length: 250) %>
+            <%= markdown(truncate(post.content, length: 250)) %>
           <% else %>
-            <%= post.content %>
+            <%= markdown(post.content) %>
           <% end %>
         </h3>
         <% end %>
