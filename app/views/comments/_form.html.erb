@@ -1,7 +1,19 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
+    <% if @post.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+        <ul>
+            <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
     <div class="form-group">
         <%= f.text_area :content, rows: "3" %>
     </div>
-    <%= f.submit 'Comentar', class: "btn btn-primary" %>
+    <%= f.submit 'Comentar', class: "btn btn-primary"%>
 <% end %>
+
+
+
 

@@ -1,13 +1,10 @@
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('../assets/home-bg.jpg'); height: 25rem;">
+<header class="masthead" style="background-image: url('../assets/home-bg.jpg'); height: 3.6rem;">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="site-heading">
-          <h1>Super Blog</h1>
-          <span class="subheading">“Todos tus sueños pueden hacerse realidad si tienes el coraje de perseguirlos”</span>
-        </div>
+        <div class="site-heading"></div>
       </div>
     </div>
   </div>
@@ -18,20 +15,20 @@
 <!-- Main Content -->
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="col-12 col-md-8 mx-auto">
       <% @posts.each do |post| %>
       <div class="post-preview">
         <%= link_to post_path(post) do %>
         <h2 class="post-title">
           <%= post.title %>
         </h2>
-        <h3 class="post-subtitle">
+        <h6 class="post-subtitle">
           <% if post.content.length > 250 %>
-            <%= markdown(truncate(post.content, length: 250)) %>
+          <%= markdown(truncate(post.content, length: 250)) %>
           <% else %>
-            <%= markdown(post.content) %>
+          <%= markdown(post.content) %>
           <% end %>
-        </h3>
+        </h6>
         <% end %>
         <p class="post-meta">Publicado por
           <a href="#"><%= post.user.username %></a> hace
@@ -48,13 +45,120 @@
         <% end %>
       </div>
       <hr>
-
       <% end %>
+    </div>
+    <div class="d-none d-md-block col-md-4 mx-auto">
+      <div class="list-categories">
+
+        <h3 class="mt-4">Categorias</h3>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Cras justo odio
+            <span class="badge badge-primary badge-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Dapibus ac facilisis in
+            <span class="badge badge-primary badge-pill">2</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Morbi leo risus
+            <span class="badge badge-primary badge-pill">1</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Cras justo odio
+            <span class="badge badge-primary badge-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Dapibus ac facilisis in
+            <span class="badge badge-primary badge-pill">2</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Morbi leo risus
+            <span class="badge badge-primary badge-pill">1</span>
+          </li>
+        </ul>
+      </div>
+      <div class="list-group popular-post mt-5">
+        <h3>Popular Post</h3>
+        <div class="list-group-item list-group-item-action">
+          <a href="#">
+            <div class="d-flex justify-content-between align-items-center">
+              <img src="http://lorempixel.com/320/427/" style="height: 100px;">
+              <h6 class="m-1">Que es lorem ipsum?</h6>
+            </div>
+          </a>
+        </div>
+        <div class="list-group-item list-group-item-action">
+          <a href="#">
+            <div class="d-flex justify-content-between align-items-center">
+              <img src="http://lorempixel.com/320/427/" style="height: 100px;">
+              <h6 class="m-1">Que es lorem ipsum?</h6>
+            </div>
+          </a>
+        </div>
+        <div class="list-group-item list-group-item-action">
+          <a href="#">
+            <div class="d-flex justify-content-between align-items-center">
+              <img src="http://lorempixel.com/320/427/" style="height: 100px;">
+              <h6 class="m-1">Que es lorem ipsum?</h6>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="archive mt-5">
+        <h4>Archive</h4>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="#">July 2018</a>
+            <span>(9)</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="#">June 2018</a>
+            <span>(39)</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="#">May 2018</a>
+            <span>(29)</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="#">May 2018</a>
+            <span>(29)</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 <hr>
-
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8 mx-auto d-flex justify-content-center">
+      <ul class="pagination pagination-lg">
+        <li class="page-item disabled">
+          <a class="page-link" href="#">&laquo;</a>
+        </li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">4</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">5</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">&raquo;</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 <!-- Footer -->
 <footer>
   <div class="container">

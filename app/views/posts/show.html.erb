@@ -20,25 +20,108 @@
 <article>
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto mb-3">
-        <p><%= markdown(@post.content) %></p>
-      </div>
-      <!-- Single Comment -->
-      <div class="list-group media col-lg-8 col-md-10 mx-auto mb-3">
-          <%= render @post.comments.order(created_at: :asc) %>
-      </div>
+      <div class="col-12 col-md-8 px-4 mt-4">
+        <div class="mx-auto mb-3">
+          <p><%= markdown(@post.content) %></p>
+        </div>
+        <!-- Single Comment -->
 
-      <% if user_signed_in? %>
-      <!-- Comments Form -->
-      <div class="card my-4 col-lg-8 col-md-10 mx-auto mb-3">
-        <h5 class="card-header">Deja un Comentario:</h5>
-        <div class="card-body">
-          <%= render 'comments/form' %>
+        <div class="list-group mx-auto mb-3">
+          <%= render @post.comments.order(created_at: :asc) %>
+        </div>
+
+        <% if user_signed_in? %>
+        <!-- Comments Form -->
+        <div class="card my-4 mx-auto mb-3">
+          <h5 class="card-header">Deja un Comentario:</h5>
+          <div class="card-body">
+            <%= render 'comments/form' %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="d-none d-md-block col-md-4 mx-auto">
+        <div class="list-categories">
+
+          <h3 class="mt-4">Categorias</h3>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Cras justo odio
+              <span class="badge badge-primary badge-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Dapibus ac facilisis in
+              <span class="badge badge-primary badge-pill">2</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Morbi leo risus
+              <span class="badge badge-primary badge-pill">1</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Cras justo odio
+              <span class="badge badge-primary badge-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Dapibus ac facilisis in
+              <span class="badge badge-primary badge-pill">2</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Morbi leo risus
+              <span class="badge badge-primary badge-pill">1</span>
+            </li>
+          </ul>
+        </div>
+        <div class="list-group popular-post mt-5">
+          <h3>Popular Post</h3>
+          <div class="list-group-item list-group-item-action">
+            <a href="#">
+              <div class="d-flex justify-content-between align-items-center">
+                <img src="http://lorempixel.com/320/427/" style="height: 100px;">
+                <h6 class="m-1">Que es lorem ipsum?</h6>
+              </div>
+            </a>
+          </div>
+          <div class="list-group-item list-group-item-action">
+            <a href="#">
+              <div class="d-flex justify-content-between align-items-center">
+                <img src="http://lorempixel.com/320/427/" style="height: 100px;">
+                <h6 class="m-1">Que es lorem ipsum?</h6>
+              </div>
+            </a>
+          </div>
+          <div class="list-group-item list-group-item-action">
+            <a href="#">
+              <div class="d-flex justify-content-between align-items-center">
+                <img src="http://lorempixel.com/320/427/" style="height: 100px;">
+                <h6 class="m-1">Que es lorem ipsum?</h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="archive mt-5">
+          <h4>Archive</h4>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <a href="#">July 2018</a>
+              <span>(9)</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <a href="#">June 2018</a>
+              <span>(39)</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <a href="#">May 2018</a>
+              <span>(29)</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <a href="#">May 2018</a>
+              <span>(29)</span>
+            </li>
+          </ul>
         </div>
       </div>
-      <% end %>
 
-      
+
     </div>
   </div>
 </article>
