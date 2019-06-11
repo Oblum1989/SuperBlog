@@ -1,8 +1,16 @@
 class CommentsController < ApplicationController
     def create
         @post = Post.find(params[:post_id])
-        @post.comments.create(comments_params)
-        redirect_to post_path(@post) 
+        @comment = @post.comments.build(comments_params)
+        respond_to do |format|
+            if @comment.save
+                format.html { redirect_to post_path(@post) }
+                format.js
+            else
+                format.html {redirect_to post_path(@post), notice: 'Relply did not save. Please try again.' }
+                format.js
+            end
+        end
     end
 
     def destroy

@@ -5,9 +5,12 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all.order(created_at: :desc)
+    @categories = Category.all
   end
 
   def show
+    @user_posts = Post.where(user_id: @post.user_id) 
+    @comment = Comment.new
   end
 
   def new

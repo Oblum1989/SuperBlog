@@ -1,9 +1,8 @@
-
 <div class="img-sign-up">
   <!-- Main Content -->
   <div class="container sign-up-container">
     <div class="row">
-      
+
       <div class="col-lg-8 col-md-10 mx-auto form-sign-up">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= flash_messages %>
@@ -24,7 +23,7 @@
         <div class="control-group">
           <div class="form-group floating-label-form-group controls">
             <%= f.label :remember_me %>
-            <p class="post-meta" id="remember-me"><%= f.check_box :remember_me %><span> Remember Me</span></p>             
+            <p class="post-meta" id="remember-me"><%= f.check_box :remember_me %><span> Remember Me</span></p>
           </div>
         </div>
         <% end %>
@@ -34,6 +33,25 @@
         <br>
         <% end %>
         <%= render "devise/shared/links" %>
+        <div class="col-lg-8 col-md-10 mx-auto social-networks">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <%= fa_stacked_icon "twitter inverse", base: "circle", class: "fa-2x" %>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <%= fa_stacked_icon "facebook inverse", base: "circle", class: "fa-2x" %>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <%= fa_stacked_icon "github inverse", base: "circle", class: "fa-2x" %>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

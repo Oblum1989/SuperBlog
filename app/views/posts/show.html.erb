@@ -26,7 +26,7 @@
         </div>
         <!-- Single Comment -->
 
-        <div class="list-group mx-auto mb-3">
+        <div id="comment-list" class="list-group mx-auto mb-3">
           <%= render @post.comments.order(created_at: :asc) %>
         </div>
 
@@ -41,62 +41,18 @@
         <% end %>
       </div>
       <div class="d-none d-md-block col-md-4 mx-auto">
-        <div class="list-categories">
-
-          <h3 class="mt-4">Categorias</h3>
-          <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Cras justo odio
-              <span class="badge badge-primary badge-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Dapibus ac facilisis in
-              <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Morbi leo risus
-              <span class="badge badge-primary badge-pill">1</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Cras justo odio
-              <span class="badge badge-primary badge-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Dapibus ac facilisis in
-              <span class="badge badge-primary badge-pill">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Morbi leo risus
-              <span class="badge badge-primary badge-pill">1</span>
-            </li>
-          </ul>
-        </div>
         <div class="list-group popular-post mt-5">
-          <h3>Popular Post</h3>
-          <div class="list-group-item list-group-item-action">
-            <a href="#">
-              <div class="d-flex justify-content-between align-items-center">
-                <img src="http://lorempixel.com/320/427/" style="height: 100px;">
-                <h6 class="m-1">Que es lorem ipsum?</h6>
-              </div>
-            </a>
-          </div>
-          <div class="list-group-item list-group-item-action">
-            <a href="#">
-              <div class="d-flex justify-content-between align-items-center">
-                <img src="http://lorempixel.com/320/427/" style="height: 100px;">
-                <h6 class="m-1">Que es lorem ipsum?</h6>
-              </div>
-            </a>
-          </div>
-          <div class="list-group-item list-group-item-action">
-            <a href="#">
-              <div class="d-flex justify-content-between align-items-center">
-                <img src="http://lorempixel.com/320/427/" style="height: 100px;">
-                <h6 class="m-1">Que es lorem ipsum?</h6>
-              </div>
-            </a>
-          </div>
+          <h3>Post del mismo usuario</h3>
+          <% @user_posts.each do |user_post| %>
+            <div class="list-group-item list-group-item-action">
+              <a href="#">
+                <div class="d-flex justify-content-between align-items-center">
+                  <img src="http://lorempixel.com/320/427/" style="height: 100px;">
+                  <h6 class="m-1"><%= user_post.title %></h6>
+                </div>
+              </a>
+            </div>
+          <% end %>
         </div>
         <div class="archive mt-5">
           <h4>Archive</h4>
@@ -132,25 +88,7 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto social-networks">
-        <ul class="list-inline text-center">
-          <li class="list-inline-item">
-            <a href="#">
-              <%= fa_stacked_icon "twitter inverse", base: "circle", class: "fa-2x" %>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">
-              <%= fa_stacked_icon "facebook inverse", base: "circle", class: "fa-2x" %>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">
-              <%= fa_stacked_icon "github inverse", base: "circle", class: "fa-2x" %>
-            </a>
-          </li>
-        </ul>
-      </div>
+      
     </div>
   </div>
 </footer>

@@ -469,3 +469,11 @@ footer .copyright {
 .alert{
   margin: 0px !important;
 }
+
+.icons-comments-views {
+  color: gray;
+}
+
+.badge-primary {
+  background-color:  #443e3e !important;
+}
